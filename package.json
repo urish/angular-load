@@ -1,5 +1,6 @@
 {
     "name": "angular-load",
+    "main": "angular-load.js",
     "version": "0.1.0",
     "repository": {
         "type": "git",
