@@ -1,6 +1,6 @@
 {
     "name": "angular-load",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Dynamically load scripts and css stylesheets in your Angular.JS app",
     "author": "Uri Shaked",
     "license": "MIT",
