@@ -24,10 +24,10 @@ Include angular-load.js in your application.
 <script src="bower_components/angular-load/angular-load.js"></script>
 ```
 
-Add the module `urish.load` as a dependency to your app module:
+Add the module `angularLoad` as a dependency to your app module:
 
 ```js
-var myapp = angular.module('myapp', ['urish.load']);
+var myapp = angular.module('myapp', ['angularLoad']);
 ```
 
 ### angularLoad service directive

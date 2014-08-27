@@ -7,7 +7,7 @@
 'use strict';
 
 describe('service angularLoad', function () {
-	beforeEach(module('urish.load'));
+	beforeEach(module('angularLoad'));
 
 	var mockDocument;
 	var $timeout, angularLoad;

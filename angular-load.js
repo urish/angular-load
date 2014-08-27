@@ -3,7 +3,7 @@
 (function () {
 	'use strict';
 
-	angular.module('urish.load', [])
+	angular.module('angularLoad', [])
 		.service('angularLoad', ['$document', '$q', '$timeout', function ($document, $q, $timeout) {
 
 			/**
