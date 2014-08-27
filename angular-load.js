@@ -14,7 +14,7 @@
 			this.loadScript = function (src) {
 				var deferred = $q.defer();
 				var script = $document[0].createElement('script');
-				script.onload = function (e) {
+				script.onload = script.onreadystatechange = function (e) {
 					$timeout(function () {
 						deferred.resolve(e);
 					});
@@ -40,7 +40,7 @@
 				style.rel = 'stylesheet';
 				style.type = 'text/css';
 				style.href = href;
-				style.onload = function (e) {
+				style.onload = style.onreadystatechange = function (e) {
 					$timeout(function () {
 						deferred.resolve(e);
 					});
