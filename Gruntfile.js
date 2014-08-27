@@ -26,6 +26,9 @@ module.exports = function (grunt) {
 			]
 		},
 		uglify: {
+			options: {
+				sourceMap: true
+			},
 			dist: {
 				files: {
 					'angular-load.min.js': 'angular-load.js'
