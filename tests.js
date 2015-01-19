@@ -60,6 +60,12 @@ describe('service angularLoad', function () {
 			$timeout.flush();
 			expect(rejected).toBeTruthy();
 		});
+
+		it('should only append the script tag once', function() {
+			angularLoad.loadScript('https://www.test.org/somescript.js');
+			angularLoad.loadScript('https://www.test.org/somescript.js');
+			expect(mockDocument.body.appendChild.calls.all().length).toBe(1);
+		});
 	});
 
 	describe('#loadCSS', function() {
@@ -96,6 +102,12 @@ describe('service angularLoad', function () {
 			expect(rejected).toBeFalsy();
 			$timeout.flush();
 			expect(rejected).toBeTruthy();
+		});
+
+		it('should only append the stylesheet link once', function() {
+			angularLoad.loadCSS('https://www.test.org/styles.css');
+			angularLoad.loadCSS('https://www.test.org/styles.css');
+			expect(mockDocument.head.appendChild.calls.all().length).toBe(1);
 		});
 	});
 });
