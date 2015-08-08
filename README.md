@@ -3,7 +3,7 @@ angular-load
 
 Dynamically load scripts and css stylesheets in your Angular.JS app.
 
-Copyright (C) 2014, Uri Shaked <uri@urish.org>
+Copyright (C) 2014, 2015, Uri Shaked <uri@urish.org>
 
 [![Build Status](https://travis-ci.org/urish/angular-load.png?branch=master)](https://travis-ci.org/urish/angular-load)
 [![Coverage Status](https://coveralls.io/repos/urish/angular-load/badge.png)](https://coveralls.io/r/urish/angular-load)

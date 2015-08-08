@@ -1,7 +1,7 @@
 {
     "name": "angular-load",
     "main": "angular-load.js",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "repository": {
         "type": "git",
         "url": "http://github.com/urish/angular-load.git"
