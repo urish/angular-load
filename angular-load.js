@@ -5,6 +5,7 @@
 
 	angular.module('angularLoad', [])
 		.service('angularLoad', ['$document', '$q', '$timeout', function ($document, $q, $timeout) {
+			var document = $document[0];
 
 			function loader(createElement) {
 				var promises = {};
@@ -38,11 +39,11 @@
 			 * @returns {*} Promise that will be resolved once the script has been loaded.
 			 */
 			this.loadScript = loader(function (src) {
-				var script = $document[0].createElement('script');
+				var script = document.createElement('script');
 
 				script.src = src;
 
-				$document[0].body.appendChild(script);
+				document.body.appendChild(script);
 				return script;
 			});
 
@@ -52,13 +53,13 @@
 			 * @returns {*} Promise that will be resolved once the CSS file has been loaded.
 			 */
 			this.loadCSS = loader(function (href) {
-				var style = $document[0].createElement('link');
+				var style = document.createElement('link');
 
 				style.rel = 'stylesheet';
 				style.type = 'text/css';
 				style.href = href;
 
-				$document[0].head.appendChild(style);
+				document.head.appendChild(style);
 				return style;
 			});
 		}]);
