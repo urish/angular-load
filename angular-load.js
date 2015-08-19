@@ -11,23 +11,23 @@
 				var promises = {};
 
 				return function(url) {
-					if (typeof promises[url] === 'undefined') {
-						var deferred = $q.defer();
-						var element = createElement(url);
+					if (typeof promises[url] !== 'undefined') {
+						return promises[url];
+					}
 
+					promises[url] = $q(function(resolve, reject) {
+						var element = createElement(url);
 						element.onload = element.onreadystatechange = function (e) {
 							$timeout(function () {
-								deferred.resolve(e);
+								resolve(e);
 							});
 						};
 						element.onerror = function (e) {
 							$timeout(function () {
-								deferred.reject(e);
+								reject(e);
 							});
 						};
-
-						promises[url] = deferred.promise;
-					}
+					});
 
 					return promises[url];
 				};
