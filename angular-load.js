@@ -16,6 +16,10 @@
 						var element = createElement(url);
 
 						element.onload = element.onreadystatechange = function (e) {
+							if (element.readyState && element.readyState !== 'complete') {
+								return;
+							}
+
 							$timeout(function () {
 								deferred.resolve(e);
 							});

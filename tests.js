@@ -37,7 +37,7 @@ describe('service angularLoad', function () {
 			expect(scriptElement.src).toEqual('https://www.test.org/somescript.js');
 		});
 
-		it('should resolve the returned promise as soon as the script has finished loading', function() {
+		it('should resolve the returned promise as soon as the script has finished loading when `onload` callback is fired', function() {
 			var resolved = false;
 			angularLoad.loadScript('https://www.test.org/somescript.js').then(function() {
 				resolved = true;
@@ -45,6 +45,21 @@ describe('service angularLoad', function () {
 			var scriptElement = mockDocument.body.appendChild.calls.mostRecent().args[0];
 			scriptElement.onload({});
 			expect(resolved).toBeFalsy();
+			$timeout.flush();
+			expect(resolved).toBeTruthy();
+		});
+
+		it('should resolve the returned promise as soon as the script has finished loading when `onreadystatechange` callback is fired', function() {
+			var resolved = false;
+			angularLoad.loadScript('https://www.test.org/somescript.js').then(function() {
+				resolved = true;
+			});
+			var scriptElement = mockDocument.body.appendChild.calls.mostRecent().args[0];
+			scriptElement.readyState = 'loading';
+			scriptElement.onreadystatechange({});
+			expect(resolved).toBeFalsy();
+			scriptElement.readyState = 'complete';
+			scriptElement.onreadystatechange({});
 			$timeout.flush();
 			expect(resolved).toBeTruthy();
 		});
