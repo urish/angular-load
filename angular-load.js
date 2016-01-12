@@ -16,7 +16,7 @@
 						var element = createElement(url);
 
 						element.onload = element.onreadystatechange = function (e) {
-							if (element.readyState && element.readyState !== 'complete') {
+							if (element.readyState && element.readyState !== 'complete' && element.readyState !== 'loaded') {
 								return;
 							}
 

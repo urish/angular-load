@@ -64,6 +64,21 @@ describe('service angularLoad', function () {
 			expect(resolved).toBeTruthy();
 		});
 
+		it('should resolve the returned promise as soon as the script has finished loading when `onreadystatechange` callback is fired in IE8', function() {
+			var resolved = false;
+			angularLoad.loadScript('https://www.test.org/somescript.js').then(function() {
+				resolved = true;
+			});
+			var scriptElement = mockDocument.body.appendChild.calls.mostRecent().args[0];
+			scriptElement.readyState = 'loading';
+			scriptElement.onreadystatechange({});
+			expect(resolved).toBeFalsy();
+			scriptElement.readyState = 'loaded';
+			scriptElement.onreadystatechange({});
+			$timeout.flush();
+			expect(resolved).toBeTruthy();
+		});
+
 		it('should reject the returned promise if the script failed to load', function() {
 			var rejected = false;
 			angularLoad.loadScript('https://www.test.org/somescript.js').catch(function() {
