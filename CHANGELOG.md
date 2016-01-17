@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.4.1 - 2015-01-16
+## 0.4.1 - 2016-01-16
 - Added IE8 support to script loading ([#26](https://github.com/urish/angular-load/pull/26), contributed by [benmarch](https://github.com/benmarch))
 
 ## 0.4.0 - 2015-10-22
