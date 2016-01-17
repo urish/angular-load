@@ -1,4 +1,4 @@
-/* angular-load.js / v0.4.0 / (c) 2014, 2015 Uri Shaked / MIT Licence */
+/* angular-load.js / v0.4.1 / (c) 2014, 2015, 2016 Uri Shaked / MIT Licence */
 
 (function () {
 	'use strict';
