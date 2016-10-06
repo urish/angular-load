@@ -33,12 +33,12 @@ var myapp = angular.module('myapp', ['angularLoad']);
 ### angularLoad service directive
 The angularLoad service provides three methods: `loadScript()`, `loadCSS()` and `unloadCss()`. 
 
-Call [`loadScript()`, `loadCSS()`] methods to load a script
-or a CSS stylesheet asynchronously into the current page. Both two methods return a promise that will be resolved
+Call the `loadScript()` and `loadCSS()` methods to load a script
+or a CSS stylesheet asynchronously into the current page. Both methods return a promise that will be resolved
 once the resource (script or stylesheet) has been loaded. In case of an error (e.g. HTTP 404) the promise will be
 rejected.
 
-Call [`unloadCss()`] method to unload a CSS stylesheet into the current page. This method return boolean value {true | false} if the resource has been unloaded. In case of trying to remove non-existent resource the function will return false
+Call the `unloadCss()` method to unload a CSS stylesheet from the current page. This method return boolean value, specifying whether the given stylesheet URL could be located in the page and has been unloaded. In case of trying to remove non-existent resource the function will return false
 
 Usage example:
 
