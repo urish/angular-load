@@ -15,7 +15,7 @@ describe('service angularLoad', function () {
 	beforeEach(module(function($provide) {
 		mockDocument = {
 			createElement: angular.bind(document, document.createElement),
-			head: jasmine.createSpyObj('document.head', ['appendChild']),
+			head: jasmine.createSpyObj('document.head', ['appendChild', 'querySelector']),
 			body: jasmine.createSpyObj('document.body', ['appendChild'])
 		};
 		spyOn(mockDocument, 'createElement').and.callThrough();
@@ -95,6 +95,37 @@ describe('service angularLoad', function () {
 			angularLoad.loadScript('https://www.test.org/somescript.js');
 			angularLoad.loadScript('https://www.test.org/somescript.js');
 			expect(mockDocument.body.appendChild.calls.all().length).toBe(1);
+		});
+	});
+
+	describe('#unloadCss', function() {
+		it('should remove the <' + 'link> element from the document head when exist and return true', function() {
+			var styleTag = {
+					//Style tag is found in the head
+					id: 'ElementObject',
+					remove: function(){}
+			};
+			spyOn(styleTag, 'remove');
+			mockDocument.head.querySelector.and.callFake(function() {
+    			return styleTag;
+			});
+			var removed = angularLoad.unloadCss('https://www.test.org/styles.css');
+			expect(removed).toBe(true);
+			expect(styleTag.remove).toHaveBeenCalled();
+		});
+
+		it('should not remove the <' + 'link> element from the document head when not exist and return false', function() {
+			mockDocument.head.querySelector.and.callFake(function() {
+    			return null; //Style tag not found in the head
+			});
+			var removed = angularLoad.unloadCss('https://www.test.org/styles.css');
+			expect(removed).toBe(false);
+		});
+
+		it('should not remove the <' + 'link> element from the document head when document head is empty and return false', function() {
+			mockDocument.head = null;
+			var removed = angularLoad.unloadCss('https://www.test.org/styles.css');
+			expect(removed).toBe(false);
 		});
 	});
 
