@@ -66,5 +66,23 @@
 				document.head.appendChild(style);
 				return style;
 			});
+
+			/**
+			 * Dynamically unloads the given CSS file
+			 * @param href The url of the CSS to unload dynamically
+			 * @returns boolean that will be true once the CSS file has been unloaded successfully or otherwise false.
+			 */
+			this.unloadCss = function (href) {
+				var docHead = document.head;
+				if(docHead) {
+					var targetCss = docHead.querySelector('[href="' + href + '"]');
+					if(targetCss) {
+						targetCss.remove();
+						return true;
+					}
+				}
+				return false;
+			};
+
 		}]);
 })();
