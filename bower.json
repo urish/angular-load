@@ -1,6 +1,6 @@
 {
   "name": "angular-load",
-  "description": "Dynamically load scripts and css stylesheets in your Angular.JS app",
+  "description": "Dynamically load scripts and CSS stylesheets in your Angular.JS app",
   "author": "Uri Shaked",
   "license": "MIT",
   "homepage": "http://github.com/urish/angular-load",
