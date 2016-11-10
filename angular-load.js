@@ -71,11 +71,11 @@
 			 * @param href The url of the CSS to unload dynamically
 			 * @returns boolean that will be true once the CSS file has been unloaded successfully or otherwise false.
 			 */
-			this.unloadCSS = function (url) {
-				delete promises[url];
+			this.unloadCSS = function (href) {
+				delete promises[href];
 				var docHead = document.head;
 				if(docHead) {
-					var targetCss = docHead.querySelector('[href="' + url + '"]');
+					var targetCss = docHead.querySelector('[href="' + href + '"]');
 					if(targetCss) {
 						targetCss.remove();
 						return true;
