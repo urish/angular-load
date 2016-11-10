@@ -6,10 +6,9 @@
 	angular.module('angularLoad', [])
 		.service('angularLoad', ['$document', '$q', '$timeout', function ($document, $q, $timeout) {
 			var document = $document[0];
+			var promises = {};
 
 			function loader(createElement) {
-				var promises = {};
-
 				return function(url) {
 					if (typeof promises[url] === 'undefined') {
 						var deferred = $q.defer();
@@ -73,6 +72,7 @@
 			 * @returns boolean that will be true once the CSS file has been unloaded successfully or otherwise false.
 			 */
 			this.unloadCSS = function (href) {
+				delete promises[href];
 				var docHead = document.head;
 				if(docHead) {
 					var targetCss = docHead.querySelector('[href="' + href + '"]');
