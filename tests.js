@@ -98,7 +98,7 @@ describe('service angularLoad', function () {
 		});
 	});
 
-	describe('#unloadCss', function() {
+	describe('#unloadCSS', function() {
 		it('should remove the <' + 'link> element from the document head when exist and return true', function() {
 			var styleTag = {
 					//Style tag is found in the head
@@ -109,7 +109,7 @@ describe('service angularLoad', function () {
 			mockDocument.head.querySelector.and.callFake(function() {
     			return styleTag;
 			});
-			var removed = angularLoad.unloadCss('https://www.test.org/styles.css');
+			var removed = angularLoad.unloadCSS('https://www.test.org/styles.css');
 			expect(removed).toBe(true);
 			expect(styleTag.remove).toHaveBeenCalled();
 		});
@@ -118,13 +118,13 @@ describe('service angularLoad', function () {
 			mockDocument.head.querySelector.and.callFake(function() {
     			return null; //Style tag not found in the head
 			});
-			var removed = angularLoad.unloadCss('https://www.test.org/styles.css');
+			var removed = angularLoad.unloadCSS('https://www.test.org/styles.css');
 			expect(removed).toBe(false);
 		});
 
 		it('should not remove the <' + 'link> element from the document head when document head is empty and return false', function() {
 			mockDocument.head = null;
-			var removed = angularLoad.unloadCss('https://www.test.org/styles.css');
+			var removed = angularLoad.unloadCSS('https://www.test.org/styles.css');
 			expect(removed).toBe(false);
 		});
 	});
