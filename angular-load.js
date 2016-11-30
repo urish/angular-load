@@ -10,7 +10,7 @@
 
 			function loader(createElement) {
 				return function(url) {
-					if (typeof promises[url] === 'undefined') {
+					if (typeof promises[url] === 'undefined' || promises[url].$$state.status === 2) {
 						var deferred = $q.defer();
 						var element = createElement(url);
 
