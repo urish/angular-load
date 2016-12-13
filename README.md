@@ -8,6 +8,12 @@ Copyright (C) 2014, 2015, Uri Shaked <uri@urish.org>
 [![Build Status](https://travis-ci.org/urish/angular-load.png?branch=master)](https://travis-ci.org/urish/angular-load)
 [![Coverage Status](https://coveralls.io/repos/urish/angular-load/badge.png)](https://coveralls.io/r/urish/angular-load)
 
+---
+
+**This project is looking for a new maintainer, see [#39](https://github.com/urish/angular-load/issues/39) for details.**
+
+---
+
 Installation
 ------------
 
