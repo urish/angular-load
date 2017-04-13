@@ -8,32 +8,34 @@ Copyright (C) 2014, 2015, Uri Shaked <uri@urish.org>
 [![Build Status](https://travis-ci.org/urish/angular-load.png?branch=master)](https://travis-ci.org/urish/angular-load)
 [![Coverage Status](https://coveralls.io/repos/urish/angular-load/badge.png)](https://coveralls.io/r/urish/angular-load)
 
----
-
-**This project is looking for a new maintainer, see [#39](https://github.com/urish/angular-load/issues/39) for details.**
-
----
-
 Installation
 ------------
 
 You can choose your preferred method of installation:
 * Through bower: `bower install angular-load --save`
 * Through npm: `npm install angular-load --save`
-* Download from github: [angular-load.min.js](https://raw.github.com/urish/angular-load/master/angular-load.min.js)
+* Download from github: [angular-load.js](https://raw.github.com/urish/angular-load/master/angular-load.js)
 
 Usage
 -----
 Include angular-load.js in your application.
 
 ```html
-<script src="bower_components/angular-load/angular-load.js"></script>
+<script src="bower_components/angular-load/dist/angular-load.min.js"></script>
 ```
-
 Add the module `angularLoad` as a dependency to your app module:
 
 ```js
 var myapp = angular.module('myapp', ['angularLoad']);
+```
+
+You can also use ES6 or CommonJS
+```js
+import angularLoad from 'angular-load';
+// or
+var angularLoad = require('angular-load');
+
+var myapp = angular.module('myapp', [angularLoad]);
 ```
 
 ### angularLoad service directive
@@ -56,6 +58,10 @@ angularLoad.loadScript('https://mysite.com/someplugin.js').then(function() {
     // There was some error loading the script. Meh
 });
 ```
+Collaborators
+------------
+
+Uri Shaked <uri@urish.org>, Colm Seale <colm.seale@gmail.com>
 
 License
 ----

@@ -1,18 +1,15 @@
-/* License: MIT.
- * Copyright (C) 2014, Uri Shaked.
- */
+import angular from 'angular';
+import 'angular-mocks';
 
-/* global describe, module, beforeEach, it, expect, jasmine, inject, spyOn */
-
-'use strict';
+import ngLoad from './index';
 
 describe('service angularLoad', function () {
-	beforeEach(module('angularLoad'));
+	beforeEach(angular.mock.module(ngLoad));
 
 	var mockDocument;
 	var $timeout, angularLoad;
 
-	beforeEach(module(function($provide) {
+	beforeEach(angular.mock.module(function($provide) {
 		mockDocument = {
 			createElement: angular.bind(document, document.createElement),
 			head: jasmine.createSpyObj('document.head', ['appendChild', 'querySelector']),

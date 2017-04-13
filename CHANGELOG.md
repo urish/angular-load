@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.2 - 2016-03-16
+- Support Angular.JS 1.6.x
+- Convert distributed library files to UMD format
+
 ## 0.4.1 - 2016-01-16
 - Added IE8 support to script loading ([#26](https://github.com/urish/angular-load/pull/26), contributed by [benmarch](https://github.com/benmarch))
 

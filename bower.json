@@ -4,7 +4,7 @@
   "author": "Uri Shaked",
   "license": "MIT",
   "homepage": "http://github.com/urish/angular-load",
-  "main": "./angular-load.js",
+  "main": "./dist/angular-load.js",
   "dependencies": {
     "angular": ">=1.0.0 <1.6.0"
   },
