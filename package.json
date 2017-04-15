@@ -1,32 +1,39 @@
 {
   "name": "angular-load",
-  "main": "angular-load.js",
-  "version": "0.4.1",
+  "main": "./dist/angular-load.js",
+  "version": "0.4.2",
   "repository": {
     "type": "git",
     "url": "http://github.com/urish/angular-load.git"
   },
-  "dependencies": {},
+  "dependencies": {
+    "angular": ">=1.0.0 <1.7.0"
+  },
+  "files": ["dist"],
   "devDependencies": {
-    "coveralls": "~2.11.0",
-    "grunt": "1.0.1",
-    "grunt-cli": "1.2.0",
-    "grunt-contrib-jshint": "1.0.0",
-    "grunt-contrib-uglify": "2.0.0",
-    "grunt-karma": "2.0.0",
-    "jasmine-core": "2.5.2",
-    "karma": "1.3.0",
-    "karma-coverage": "1.1.1",
-    "karma-jasmine": "1.0.2",
-    "karma-phantomjs-launcher": "1.0.2",
-    "load-grunt-tasks": "3.5.2",
-    "phantomjs-prebuilt": "2.1.13"
+    "angular-mocks": ">=1.0.0 <1.7.0",
+    "babel-core": "^6.24.0",
+    "babel-jest": "^19.0.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-env": "^1.2.2",
+    "babel-preset-es2015": "^6.24.0",
+    "coveralls": "^2.11.16",
+    "eslint": "^3.18.0",
+    "eslint-config-angular": "^0.5.0",
+    "eslint-plugin-angular": "^2.3.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jest": "^19.0.1",
+    "jest": "^19.0.2",
+    "regenerator-runtime": "^0.10.3",
+    "webpack": "^2.3.3",
+    "webpack-dev-server": "^2.4.2"
   },
   "engines": {
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "grunt test",
-    "build": "grunt build"
+    "prepublish": "npm test && npm run build",
+    "test": "./node_modules/.bin/jest",
+    "build": "rm -rf dist && ./node_modules/.bin/webpack && ./node_modules/.bin/webpack --env.prod"
   }
 }
