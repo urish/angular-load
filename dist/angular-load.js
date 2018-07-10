@@ -122,10 +122,12 @@ angular.module('angularLoad', []).service('angularLoad', ['$document', '$q', '$t
   * @param src The url of the script to load dynamically
   * @returns {*} Promise that will be resolved once the script has been loaded.
   */
-	this.loadScript = loader(function (src) {
+	this.loadScript = loader(function (attrs) {
 		var script = document.createElement('script');
-
-		script.src = src;
+		
+		angular.forEach(attrs, function(value, key) {
+			script[key] = value;
+		});
 
 		document.body.appendChild(script);
 		return script;
