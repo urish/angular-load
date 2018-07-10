@@ -90,10 +90,10 @@ angular.module('angularLoad', []).service('angularLoad', ['$document', '$q', '$t
 	var promises = {};
 
 	function loader(createElement) {
-		return function (url) {
+		return function (url, attrs = {}) {
 			if (typeof promises[url] === 'undefined') {
 				var deferred = $q.defer();
-				var element = createElement(url);
+				var element = createElement(url, attrs);
 
 				element.onload = element.onreadystatechange = function (e) {
 					if (element.readyState && element.readyState !== 'complete' && element.readyState !== 'loaded') {
@@ -122,11 +122,13 @@ angular.module('angularLoad', []).service('angularLoad', ['$document', '$q', '$t
   * @param src The url of the script to load dynamically
   * @returns {*} Promise that will be resolved once the script has been loaded.
   */
-	this.loadScript = loader(function (attrs) {
+	this.loadScript = loader(function (src, attrs) {
 		var script = document.createElement('script');
 		
+		script.src = src;
+
 		angular.forEach(attrs, function(value, key) {
-			script[key] = value;
+			script.setAttribute(key, value)
 		});
 
 		document.body.appendChild(script);
